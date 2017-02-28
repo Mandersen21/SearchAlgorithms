@@ -9,8 +9,8 @@ namespace Searching_Algoritms
     public class Node
     {
         public string name;
-        public bool visited { get; } 
-        public int cost { get; }
+        public bool visited { get; set; } 
+        public int cost { get; set; }
 
         public List<Edge> neighbors = new List<Edge>();
 
@@ -21,17 +21,11 @@ namespace Searching_Algoritms
             visited = Visited;
         }
 
-        // Implemented with only name & visited
+        // Implemented with only name & cost
         public Node(string Name, int Cost)
         {
             name = Name;
             cost = Cost;
-        }
-
-        // Add neighbor to node
-        public void isNeighborOf(Node v, int Cost)
-        {
-            neighbors.Add(new Edge(v, Cost));
         }
 
         // Check if Node has been visited

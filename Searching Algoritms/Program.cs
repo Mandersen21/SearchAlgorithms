@@ -12,10 +12,12 @@ namespace Searching_Algoritms
         {
             DijkstraAlgorithm dij = new DijkstraAlgorithm();
 
-            var root = dij.buildGraph();
+            // Build graph
+            var nodes = dij.buildGraph();
+            var root = nodes[0]; var goal = nodes[1];
 
-            // Search for E
-            dij.search(root, "E");
+            // Start searching using Uniform Cost Search
+            dij.search(root, goal);
         }
     }
 }

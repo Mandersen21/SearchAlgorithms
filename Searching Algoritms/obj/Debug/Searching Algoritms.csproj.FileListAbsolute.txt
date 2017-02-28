@@ -10,3 +10,6 @@ C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\obj\Debu
 C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Searching Algoritms.exe
 C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Searching Algoritms.pdb
 C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\obj\Debug\Searching Algoritms.csprojResolveAssemblyReference.cache
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Priority Queue.dll
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Priority Queue.pdb
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Priority Queue.xml
