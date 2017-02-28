@@ -4,3 +4,9 @@ c:\users\mikke\documents\visual studio 2015\Projects\Searching Algoritms\Searchi
 c:\users\mikke\documents\visual studio 2015\Projects\Searching Algoritms\Searching Algoritms\obj\Debug\Searching Algoritms.csprojResolveAssemblyReference.cache
 c:\users\mikke\documents\visual studio 2015\Projects\Searching Algoritms\Searching Algoritms\obj\Debug\Searching Algoritms.exe
 c:\users\mikke\documents\visual studio 2015\Projects\Searching Algoritms\Searching Algoritms\obj\Debug\Searching Algoritms.pdb
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Searching Algoritms.exe.config
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\obj\Debug\Searching Algoritms.exe
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\obj\Debug\Searching Algoritms.pdb
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Searching Algoritms.exe
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\bin\Debug\Searching Algoritms.pdb
+C:\Users\Mikke\Documents\Projekter\SearchAlgorithms\Searching Algoritms\obj\Debug\Searching Algoritms.csprojResolveAssemblyReference.cache

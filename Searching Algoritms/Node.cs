@@ -8,45 +8,44 @@ namespace Searching_Algoritms
 {
     public class Node
     {
-        public string name { get; set; }
-        public bool discovered { get; set; }
-        List<Node> NodeEdgesList = new List<Node>();
+        public string name;
+        public bool visited { get; } 
+        public int cost { get; }
 
-        public Node(string name, bool discovered)
+        public List<Edge> neighbors = new List<Edge>();
+
+        // Implemented with name, visited
+        public Node(string Name, bool Visited)
         {
-            this.name = name;
-            this.discovered = discovered;
+            name = Name;
+            visited = Visited;
         }
 
-        public List<Node> NodeEdges
+        // Implemented with only name & visited
+        public Node(string Name, int Cost)
         {
-            get
-            {
-                return NodeEdgesList;
-            }
+            name = Name;
+            cost = Cost;
         }
 
-        // Add connections edges in the graph
-        public void isEdgeOf(Node v)
+        // Add neighbor to node
+        public void isNeighborOf(Node v, int Cost)
         {
-            NodeEdges.Add(v);
+            neighbors.Add(new Edge(v, Cost));
         }
 
-        public bool isDiscovered(Node v)
+        // Check if Node has been visited
+        public bool isVisited(Node v)
         {
-            if (v.discovered)
-            {
+            if (v.visited)
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
 
-        public override string ToString()
+        public int getCost(Node v)
         {
-            return name;
+            return cost;
         }
     }
 }
