@@ -10,7 +10,8 @@ namespace Searching_Algoritms
     {
         public string name;
         public bool visited { get; set; } 
-        public int cost { get; set; }
+        public double pathCost { get; set; }
+        public Node parent { get; set; }
 
         public List<Edge> neighbors = new List<Edge>();
 
@@ -25,7 +26,7 @@ namespace Searching_Algoritms
         public Node(string Name, int Cost)
         {
             name = Name;
-            cost = Cost;
+            pathCost = Cost;
         }
 
         // Check if Node has been visited
@@ -37,9 +38,9 @@ namespace Searching_Algoritms
                 return false;
         }
 
-        public int getCost(Node v)
+        public double getCost(Node v)
         {
-            return cost;
+            return pathCost;
         }
     }
 }
