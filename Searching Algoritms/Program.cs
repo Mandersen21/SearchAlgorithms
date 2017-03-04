@@ -9,16 +9,36 @@ namespace Searching_Algoritms
     class Program
     {
         static void Main(string[] args)
-        {
-            DijkstraAlgorithm dij = new DijkstraAlgorithm();
-            DijkstraAlgorithm_second dij2 = new DijkstraAlgorithm_second();
+        { 
+            GraphBuilder graph = new GraphBuilder();
+            DijkstraAlgorithm dijstra = new DijkstraAlgorithm();
 
-            // Build graph
-            var nodes = dij2.buildGraph();
-            var root = nodes[0]; var goal = nodes[1];
+            // Build dijstra algoritme graph 1
+            var searchProblem1 = graph.BuildGraph1();
 
-            // Start searching using Uniform Cost Search
-            dij2.search(root, goal);
+            // Build dijstra algoritme graph 2
+            var searchProblem2 = graph.BuildGraph2();
+
+            // Build BFS algoritme graph 1
+
+            // Build DFS algoritme graph 1
+
+            // Search using dijstra with graph 1
+            dijstra.search(searchProblem1.root, searchProblem1.goal);
+
+            // Search using dijstra with graph 2
+
+
+
+            //DijkstraAlgorithm dij = new DijkstraAlgorithm();
+            //DijkstraAlgorithm_second dij2 = new DijkstraAlgorithm_second();
+
+            //// Build graph
+            //var nodes = dij2.buildGraph();
+            //var root = nodes[0]; var goal = nodes[1];
+
+            //// Start searching using Uniform Cost Search
+            //dij2.search(root, goal);
         }
     }
 }
