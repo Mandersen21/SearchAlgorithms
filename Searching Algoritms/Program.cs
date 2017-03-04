@@ -25,7 +25,7 @@ namespace Searching_Algoritms
             var searchProblem3 = graph.BuildGraph3();
 
             // Search using Breath first search
-            
+            bfs.Traverse(searchProblem1.root);
 
             // Search using dijstra with graph 1
             dijstra.search(searchProblem1.root, searchProblem1.goal);
