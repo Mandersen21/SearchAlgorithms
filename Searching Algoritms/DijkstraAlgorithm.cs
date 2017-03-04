@@ -11,11 +11,11 @@ namespace Searching_Algoritms
     {
         public List<Node> buildGraph()
         {
-            Node A = new Node("Sibiu", false);
-            Node B = new Node("Fagaras", false);
-            Node C = new Node("Rimnicu Vilcea", false);
-            Node D = new Node("Pitesti", false);
-            Node E = new Node("Bucharest", false);
+            Node A = new Node("Sibiu");
+            Node B = new Node("Fagaras");
+            Node C = new Node("Rimnicu Vilcea");
+            Node D = new Node("Pitesti");
+            Node E = new Node("Bucharest");
 
             // Add neighbors to all nodes
             A.neighbors = new List<Edge>{
@@ -25,7 +25,7 @@ namespace Searching_Algoritms
 
             B.neighbors = new List<Edge>{
                new Edge(A, 99),
-               new Edge(E, 211)
+               new Edge(E, 10)
             };
 
             C.neighbors = new List<Edge>{
@@ -40,7 +40,7 @@ namespace Searching_Algoritms
 
             E.neighbors = new List<Edge>
             {
-                new Edge(B, 211),
+                new Edge(B, 10),
                 new Edge(D, 101),
             };
 
@@ -83,17 +83,11 @@ namespace Searching_Algoritms
                     double cost = edge.cost;
                     child.pathCost = current.pathCost + cost;
 
-                    if (!explored.Contains(edge.node)) {
-                        Console.WriteLine("pathCost " + current.name + " are: " + current.pathCost + "\n");
-                    }
-                    
                     if (!explored.Contains(child) && !priorityQueue.Contains(child))
                     {
                         //Console.WriteLine(child.name + " is not explored and is not in priority queue");
                         child.parent = current;
                         priorityQueue.Enqueue(child, Convert.ToSingle(child.pathCost));
-
-                        //Console.WriteLine(child);
                     }
                     else if ((priorityQueue.Contains(child)) && (child.pathCost > current.pathCost))
                     {
@@ -107,7 +101,8 @@ namespace Searching_Algoritms
 
             } while (priorityQueue.Count != 0);
 
-            Console.WriteLine("\nSearch ended, goal node ended with a pathCost of: " + goal.pathCost);
+            Console.WriteLine("\nSearch ended, goal node ended with a pathCost of: " + goal.parent.pathCost);
+            Console.WriteLine("Shortest path are calculated to: " + goal.parent.name);
         }
     }
 }

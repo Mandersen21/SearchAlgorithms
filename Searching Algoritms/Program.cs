@@ -11,13 +11,14 @@ namespace Searching_Algoritms
         static void Main(string[] args)
         {
             DijkstraAlgorithm dij = new DijkstraAlgorithm();
+            DijkstraAlgorithm_second dij2 = new DijkstraAlgorithm_second();
 
             // Build graph
-            var nodes = dij.buildGraph();
+            var nodes = dij2.buildGraph();
             var root = nodes[0]; var goal = nodes[1];
 
             // Start searching using Uniform Cost Search
-            dij.search(root, goal);
+            dij2.search(root, goal);
         }
     }
 }
