@@ -11,14 +11,16 @@ namespace Searching_Algoritms
     {
         public void search(Node root, Node goal)
         {
+            Console.WriteLine("Starting search using dijstra algoritme");
+            Console.WriteLine(" ");
+
             // Set cost to 0 for root node.
             root.pathCost = 0;
 
-            Queue<Node> shortestPathQueue = new Queue<Node>();
-            List<Node> shortestPath = new List<Node>();
             SimplePriorityQueue<Node> priorityQueue = new SimplePriorityQueue<Node>();
 
             priorityQueue.Enqueue(root, Convert.ToSingle(root.pathCost));
+
             HashSet<Node> explored = new HashSet<Node>();
             var found = false;
 
@@ -27,7 +29,7 @@ namespace Searching_Algoritms
                 // Get head of the queue and add it as explored
                 Node current = priorityQueue.Dequeue();
                 explored.Add(current);
-                Console.WriteLine("*** " + current.name + " is being explored ***");
+                Console.WriteLine("Node " + current.name + " is being explored");
 
                 // If goal has been found, set found to true
                 if (current.name.Equals(goal.name))
@@ -44,35 +46,25 @@ namespace Searching_Algoritms
 
                     if (!explored.Contains(child))
                     {
-                        Console.WriteLine(edge.node.name + " is the child node to: " + current.name);
-
-                        Console.WriteLine("Before calculation: " + edge.node.pathCost);
                         beforeCost = edge.node.pathCost;
-
                         child.pathCost = current.pathCost + cost;
-
-                        Console.WriteLine(edge.node.name + " pathcost is now calculated to: " + edge.node.pathCost + "\n");
-                        Console.WriteLine("After calculation: " + edge.node.pathCost);
                     }
 
                     if (!explored.Contains(child) && !priorityQueue.Contains(child))
                     {
                         child.parent = current;
-                        Console.WriteLine("----" + child.name + " has been visited via: " + child.parent.name + " ---- \n");
                         priorityQueue.Enqueue(child, Convert.ToSingle(child.pathCost));
                     }
+
                     else if ((priorityQueue.Contains(child)) && (child.pathCost > current.pathCost))
                     {
                         if (child.pathCost < beforeCost)
                         {
-                            Console.WriteLine("Its smaller than beforeCost");
                             child.parent = current;
-                            Console.WriteLine("---- Status changed: " + child.name + " has been visited via: " + child.parent.name + " ---- \n");
                         }
                         else
                         {
                             child.pathCost = beforeCost;
-                            Console.WriteLine(child.name + " got it's beforeCost back: " + child.pathCost);
                         }
 
                         // the next two calls decrease the key of the node in the queue
@@ -81,36 +73,38 @@ namespace Searching_Algoritms
                     }
 
                 }
-                shortestPath.Add(current);
 
             } while (priorityQueue.Count != 0);
 
+            Console.WriteLine(" ");
             Console.WriteLine("Search is done");
-            Console.WriteLine("Printing shortest path");
-            shortestPathQueue.Enqueue(goal);
-            shortestPathQueue.Enqueue(goal.parent);
 
-            var searchForNextParent = goal.parent;
-
-            //while (searchForNextParent != null)
-            //{
-            //    Console.WriteLine("---");
-            //    foreach (Node node in shortestPath)
-            //    {
-            //        if (node.name == searchForNextParent.name)
-            //        {
-            //            shortestPathQueue.Enqueue(node.parent);
-            //            searchForNextParent = node;
-            //        }
-            //    }
-            //}
-
-            //while(shortestPathQueue.Count != 0)
-            //{
-            //    var nodeInQueue = shortestPathQueue.Dequeue();
-            //    Console.WriteLine(nodeInQueue.name + " ");
-            //}
+            // Print shortest path
+            printPath(goal);
         }
+
+        public void printPath(Node target)
+        {
+            Console.Write("The shortest path are calculated to: ");
+
+            List<Node> path = new List<Node>();
+            for (Node node = target; node != null; node = node.parent)
+            {
+                path.Add(node);
+            }
+
+            path.Reverse();
+
+            foreach (Node node in path)
+            {
+                Console.Write(node.name + " ");
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
+        }
+
     }
 }
 

@@ -19,26 +19,17 @@ namespace Searching_Algoritms
             // Build dijstra algoritme graph 2
             var searchProblem2 = graph.BuildGraph2();
 
-            // Build BFS algoritme graph 1
-
-            // Build DFS algoritme graph 1
+            // Build dijstra algoritme graph 3
+            var searchProblem3 = graph.BuildGraph3();
 
             // Search using dijstra with graph 1
             dijstra.search(searchProblem1.root, searchProblem1.goal);
 
             // Search using dijstra with graph 2
+            dijstra.search(searchProblem2.root, searchProblem2.goal);
 
-
-
-            //DijkstraAlgorithm dij = new DijkstraAlgorithm();
-            //DijkstraAlgorithm_second dij2 = new DijkstraAlgorithm_second();
-
-            //// Build graph
-            //var nodes = dij2.buildGraph();
-            //var root = nodes[0]; var goal = nodes[1];
-
-            //// Start searching using Uniform Cost Search
-            //dij2.search(root, goal);
+            // Search using dijstra with graph 3
+            dijstra.search(searchProblem3.root, searchProblem3.goal);
         }
     }
 }
