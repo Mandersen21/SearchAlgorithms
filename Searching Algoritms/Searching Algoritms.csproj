@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AStarAlgorithm.cs" />
     <Compile Include="BreadthFirstAlgorithm.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="DepthFirstAlgorithm.cs" />
