@@ -6,103 +6,78 @@ using System.Threading.Tasks;
 
 namespace Searching_Algoritms
 {
-    //public class BreadthFirstAlgorithm
-    //{
-    //    public Node BuildBFSGraph()
-    //    {
-    //        Node A = new Node("A", false);
-    //        Node B = new Node("B", false);
-    //        Node C = new Node("C", false);
-    //        Node D = new Node("D", false);
-    //        Node E = new Node("E", false);
-    //        Node F = new Node("F", false);
+    public class BreadthFirstAlgorithm
+    {
+        public void Traverse(Node root)
+        {
+            Queue<Node> traverseOrder = new Queue<Node>();
+            Queue<Node> Q = new Queue<Node>();
+            HashSet<Node> S = new HashSet<Node>();
 
-    //        // Set edges
-    //        //A.isEdgeOf(B);
-    //        //A.isEdgeOf(D);
-    //        //B.isEdgeOf(A);
-    //        //B.isEdgeOf(C);
-    //        //B.isEdgeOf(E);
-    //        //C.isEdgeOf(B);
-    //        //C.isEdgeOf(F);
-    //        //D.isEdgeOf(A);
-    //        //D.isEdgeOf(E);
-    //        //F.isEdgeOf(C);
+            // Add root node to queue
+            Q.Enqueue(root);
+            S.Add(root);
 
-    //        return A;
-    //    }
+            while (Q.Count > 0)
+            {
+                Node p = Q.Dequeue();
+                Console.WriteLine("Node is being looked at: " + p);
 
-    //    public void Traverse(Node root)
-    //    {
-    //        Queue<Node> traverseOrder = new Queue<Node>();
+                // Add node to the end of traverseOrder queue.
+                traverseOrder.Enqueue(p);
 
-    //        Queue<Node> Q = new Queue<Node>();
-    //        HashSet<Node> S = new HashSet<Node>();
+                foreach (Edge edges in p.neighbors)
+                {
+                    if (!S.Contains(edges))
+                    {
+                        Q.Enqueue(edges);
+                        S.Add(edges);
+                    }
+                }
+            }
 
-    //        // Add root node to queue
-    //        Q.Enqueue(root);
-    //        S.Add(root);
+            while (traverseOrder.Count > 0)
+            {
+                Node p = traverseOrder.Dequeue();
+                Console.Write(p + " ");
+            }
 
-    //        while (Q.Count > 0)
-    //        {
-    //            Node p = Q.Dequeue();
-    //            Console.WriteLine("Node is being looked at: " + p);
+            Console.WriteLine("\n");
+        }
 
-    //            // Add node to the end of traverseOrder queue.
-    //            traverseOrder.Enqueue(p);
+        public Node BreadthFirstSearch(Node root, string searchNode)
+        {
+            Queue<Node> Q = new Queue<Node>();
+            HashSet<Node> S = new HashSet<Node>();
 
-    //            foreach (Node edges in p.NodeEdges)
-    //            {
-    //                if (!S.Contains(edges))
-    //                {
-    //                    Q.Enqueue(edges);
-    //                    S.Add(edges);
-    //                }
-    //            }
-    //        }
+            // Add node to end of queue
+            Q.Enqueue(root);
 
-    //        while (traverseOrder.Count > 0)
-    //        {
-    //            Node p = traverseOrder.Dequeue();
-    //            Console.Write(p + " ");
-    //        }
+            // Add node to HashSet
+            S.Add(root);
 
-    //        Console.WriteLine("\n");
-    //    }
+            while (Q.Count > 0)
+            {
+                Node p = Q.Dequeue();
+                Console.WriteLine("Node to be checked: " + p);
 
-    //    public Node BreadthFirstSearch(Node root, string searchNode)
-    //    {
-    //        Queue<Node> Q = new Queue<Node>();
-    //        HashSet<Node> S = new HashSet<Node>();
+                // Check if p is the one we are searching for
+                if (p.name == searchNode)
+                {
+                    return p;
+                }
 
-    //        // Add node to end of queue
-    //        Q.Enqueue(root);
+                foreach (Node edge in p.NodeEdges)
+                {
+                    if (!S.Contains(edge))
+                    {
+                        S.Add(edge);
+                        Q.Enqueue(edge);
+                    }
+                }
 
-    //        // Add node to HashSet
-    //        S.Add(root);
-
-    //        while (Q.Count > 0)
-    //        {
-    //            Node p = Q.Dequeue();
-    //            Console.WriteLine("Node to be checked: " + p);
-
-    //            // Check if p is the one we are searching for
-    //            if (p.name == searchNode)
-    //            {
-    //                return p;
-    //            }
-
-    //            foreach (Node edge in p.NodeEdges)
-    //            {
-    //                if (!S.Contains(edge))
-    //                {
-    //                    S.Add(edge);
-    //                    Q.Enqueue(edge);
-    //                }
-    //            }
-
-    //        }
-    //        return null;
-    //    }
-    //}
+            }
+            return null;
+        }
+    }
 }

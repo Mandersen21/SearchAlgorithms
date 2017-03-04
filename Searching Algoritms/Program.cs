@@ -12,6 +12,8 @@ namespace Searching_Algoritms
         { 
             GraphBuilder graph = new GraphBuilder();
             DijkstraAlgorithm dijstra = new DijkstraAlgorithm();
+            BreadthFirstAlgorithm bfs = new BreadthFirstAlgorithm();
+            //DepthFirstAlgorithm bfs = new DepthFirstAlgorithm();
 
             // Build dijstra algoritme graph 1
             var searchProblem1 = graph.BuildGraph1();
@@ -21,6 +23,9 @@ namespace Searching_Algoritms
 
             // Build dijstra algoritme graph 3
             var searchProblem3 = graph.BuildGraph3();
+
+            // Search using Breath first search
+            
 
             // Search using dijstra with graph 1
             dijstra.search(searchProblem1.root, searchProblem1.goal);
