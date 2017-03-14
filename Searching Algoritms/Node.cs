@@ -19,11 +19,6 @@ namespace Searching_Algoritms
         {
             name = Name;
         }
-
-        public double getCost(Node v)
-        {
-            return pathCost;
-        }
     }
 }
 

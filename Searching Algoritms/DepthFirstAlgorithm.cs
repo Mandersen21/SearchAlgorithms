@@ -1,112 +1,86 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace Searching_Algoritms
-{
-    //public class DepthFirstAlgorithm
-    //{
-    //    public Node BuildDFSGraph()
-    //    {
-    //        Node A = new Node("A", false);
-    //        Node B = new Node("B", false);
-    //        Node C = new Node("C", false);
-    //        Node D = new Node("D", false);
-    //        Node E = new Node("E", false);
-    //        Node H = new Node("H", false);
-    //        Node S = new Node("S", false);
+//namespace Searching_Algoritms
+//{
+//    public void Traverse(Node root)
+//    {
+//        Queue<Node> traverseOrder = new Queue<Node>();
 
-    //        // Set edges
-    //        A.isEdgeOf(S);
-    //        A.isEdgeOf(B);
+//        Stack<Node> S = new Stack<Node>();
 
-    //        B.isEdgeOf(C);
+//        S.Push(root);
 
-    //        S.isEdgeOf(E);
-    //        S.isEdgeOf(D);
+//        while (S.Count > 0)
+//        {
+//            // Removes and return the object from the stack
+//            Node p = S.Pop();
 
-    //        E.isEdgeOf(H);
+//            if (!p.isDiscovered(p))
+//            {
+//                p.discovered = true;
+//                Console.WriteLine(p + " has been discovered");
 
-    //        return A;
-    //    }
+//                // Add to traverseOrder queue
+//                traverseOrder.Enqueue(p);
 
-    //    public void Traverse(Node root)
-    //    {
-    //        Queue<Node> traverseOrder = new Queue<Node>();
+//                foreach (Node edges in p.NodeEdges)
+//                {
+//                    if (!S.Contains(edges))
+//                    {
+//                        S.Push(edges);
+//                    }
+//                }
+//            }
 
-    //        Stack<Node> S = new Stack<Node>();
+//        }
 
-    //        S.Push(root);
+//        while (traverseOrder.Count > 0)
+//        {
+//            Node p = traverseOrder.Dequeue();
+//            Console.Write(p + " ");
+//        }
 
-    //        while (S.Count > 0)
-    //        {
-    //            // Removes and return the object from the stack
-    //            Node p = S.Pop();
+//        Console.WriteLine("\n");
 
-    //            if (!p.isDiscovered(p))
-    //            {
-    //                p.discovered = true;
-    //                Console.WriteLine(p + " has been discovered");
+//    }
 
-    //                // Add to traverseOrder queue
-    //                traverseOrder.Enqueue(p);
+//    public Node DepthFirstSearch(Node root, string searchNode)
+//    {
+//        Stack<Node> S = new Stack<Node>();
 
-    //                foreach (Node edges in p.NodeEdges)
-    //                {
-    //                    if (!S.Contains(edges))
-    //                    {
-    //                        S.Push(edges);
-    //                    }
-    //                }
-    //            }
+//        S.Push(root);
 
-    //        }
+//        while (S.Count > 0)
+//        {
+//            // Removes and return the object from the stack
+//            Node p = S.Pop();
 
-    //        while (traverseOrder.Count > 0)
-    //        {
-    //            Node p = traverseOrder.Dequeue();
-    //            Console.Write(p + " ");
-    //        }
+//            if (!p.isDiscovered(p))
+//            {
+//                p. = true;
+//                Console.WriteLine(p + " has been discovered");
 
-    //        Console.WriteLine("\n");
+//                if (p.name == searchNode)
+//                {
+//                    return p;
+//                }
 
-    //    }
+//                foreach (Edge edges in p.neighbors)
+//                {
+//                    if (!S.Contains(edges))
+//                    {
+//                        S.Push(edges);
+//                    }
+//                }
+//            }
 
-    //    public Node DepthFirstSearch(Node root, string searchNode)
-    //    {
-    //        Stack<Node> S = new Stack<Node>();
+//        }
 
-    //        S.Push(root);
+//        return null;
+//    }
+//}
 
-    //        while (S.Count > 0)
-    //        {
-    //            // Removes and return the object from the stack
-    //            Node p = S.Pop();
-
-    //            if (!p.isDiscovered(p))
-    //            {
-    //                p.discovered = true;
-    //                Console.WriteLine(p + " has been discovered");
-
-    //                if (p.name == searchNode)
-    //                {
-    //                    return p;
-    //                }
-
-    //                foreach (Node edges in p.NodeEdges)
-    //                {
-    //                    if (!S.Contains(edges))
-    //                    {
-    //                        S.Push(edges);
-    //                    }
-    //                }
-    //            }
-
-    //        }
-
-    //        return null;
-    //    }
-    //}
-}
